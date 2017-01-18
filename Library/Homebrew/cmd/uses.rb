@@ -106,7 +106,6 @@ module Homebrew
           reqs.any? do |req|
             req.name == ff.name || [ff.name, ff.full_name].include?(req.default_formula)
           end
-        rescue FormulaUnavailableError
           # Silently ignore this case as we don't care about things used in
           # taps that aren't currently tapped.
         end
