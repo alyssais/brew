@@ -107,8 +107,8 @@ module Homebrew
             req.name == ff.name || [ff.name, ff.full_name].include?(req.default_formula)
           end
         rescue FormulaUnavailableError
-          # Silently ignore this case as we don't care about things used in
-          # taps that aren't currently tapped.
+          # Allow errors for developers to test if this rescue can be removed.
+          raise if ARGV.homebrew_developer?
         end
       end
     end
